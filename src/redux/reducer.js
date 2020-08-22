@@ -12,7 +12,12 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
     switch(action.type){
         case "SEND":{
             let messages = [...previousState.messages];
-            messages.push(previousState.inputMessage);
+            messages.push( {
+                    content: "Bienvenido a memechat inserta un mensaje",
+                    date: "Thu Aug 20 2020 19:01:06 GTM-0500 (hora de verano central)",
+                    showOptions: false
+                });
+            console.log(messages)
             return { ...previousState, messages: messages };
         }
         case "DELETE":{
