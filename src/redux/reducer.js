@@ -6,13 +6,13 @@ const INITIAL_STATE = {
             showOptions: false
         }
     ],
-    inputMessage = ""
+    inputMessage : ""
 };
 export const chatReducer =(previousState = INITIAL_STATE, action)=>{
     switch(action.type){
         case "SEND":{
             let messages = [...previousState.messages];
-            message.push(previousState.inputMessage);
+            messages.push(previousState.inputMessage);
             return { ...previousState, messages: messages };
         }
         case "DELETE":{

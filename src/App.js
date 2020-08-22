@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import MessageContainer from './components/messageContainer'
+import MessageItem from './components/messageItem'
+import MessageOptions from './components/messageOptions'
+import MessageArea from './components/messageArea'
+import Store from'./redux/store'
 import './App.css';
 
-function App() {
+export default function App() {
+  const {chatReducer} = Store.getState();
+  console.log(chatReducer)
+  console.log(chatReducer.messages)
+  let id = -1
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MessageContainer>
+        {chatReducer.messages.map((message) => {
+          return <MessageItem key = {id++} content = {message.content} date = {message.date} showOptions={message.showOptions}>
+                  <MessageOptions id = {id++}/>
+                 </MessageItem>
+        })}
+      </MessageContainer>
+      <MessageArea />
     </div>
   );
 }
 
-export default App;
