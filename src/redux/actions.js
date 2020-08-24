@@ -4,6 +4,12 @@ export const sendMessage =()=>
         type: "SEND"
     };
 };
+export const randomMessage =()=>
+{
+    return{
+        type: "SEND_RANDOM"
+    };
+};
 export const deleteMessage =(id)=>
 {
     return{
@@ -18,10 +24,11 @@ export const inputMessage=(txt)=>
         payload: txt
     };
 };
-export const optionsMessage=(id)=>
+export const optionsMessage=(id, options)=>
 {
     return{
         type: "SHOW_OPTIONS",
+        show: options,
         payload: id
     };
 };
