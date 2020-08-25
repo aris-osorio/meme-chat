@@ -36,6 +36,7 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
                     date: moment().format('MMMM Do YYYY, h:mm'),
                     showOptions: false
             });
+            console.log("ENVIANDO MENSAJE USUARIO")
             document.getElementById("input-txt").value = ""
             return { ...previousState, messages: messages };
         }
@@ -49,13 +50,14 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
                     date: moment().format('MMMM Do YYYY, h:mm'),
                     showOptions: false
                 });
-                console.log(messages)
+                console.log("ENVIANDO MENSAJE RANDOM")
             }
             return { ...previousState, messages: messages };
         }
         case "DELETE":{
             let messages = [...previousState.messages];
             messages.splice(action.payload, 1);
+            console.log("ELIMINANDO MENSAJE")
             return { ...previousState, messages: messages };
         }
         case "SET_INPUT_VALUE":{
@@ -67,8 +69,7 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
         case "SHOW_OPTIONS":{
             let messages = [...previousState.messages];
             messages[action.payload].showOptions = action.show;
-            console.log("estoy cambiando item "+action.payload+" a "+action.show)
-            console.log(messages)
+            console.log("MOSTRAR OPCIONES DEL MENSAJE "+action.payload+" = "+action.show)
             return { ...previousState, messages: messages };
         }
         default:{
