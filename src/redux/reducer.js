@@ -76,7 +76,6 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
         case "SHOW_OPTIONS":{
             let messages = [...previousState.messages];
             messages[action.payload].showOptions = action.show;
-            console.log(action.payload);
             return { ...previousState, messages: messages };
         }
         default:{

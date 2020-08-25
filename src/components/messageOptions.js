@@ -9,8 +9,6 @@ function useOutsideAlerter(ref, id) {
             if (ref.current && !ref.current.contains(event.target)) {
                 Store.dispatch(optionsMessage(id, false)) 
             }
-            console.log(ref)
-            console.log(event.target)
         }
 
         document.addEventListener("mousedown", click);
@@ -30,8 +28,8 @@ export default function MessageOptions(props){
        useOutsideAlerter(ref, props.id);
 
     return(
-        <div className=""  ref={ref}>
-            <p>opciones</p>
+        <div ref={ref}>
+            <p className="mb-0">opciones</p>
         </div>
     );
 }

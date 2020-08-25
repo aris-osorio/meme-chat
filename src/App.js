@@ -1,4 +1,5 @@
 import React from 'react';
+import TitleChat from './components/titleChat'
 import MessageContainer from './components/messageContainer'
 import MessageItem from './components/messageItem'
 import MessageOptions from './components/messageOptions'
@@ -11,8 +12,11 @@ export default function App() {
   const {chatReducer} = Store.getState();
   let id = -1
   let options
+  let direction
+
   return (
-    <div className="App">
+    <div className="App vh-100">
+      <TitleChat />
       <MessageContainer>
         {chatReducer.messages.map((message) => {
           id++
@@ -23,10 +27,16 @@ export default function App() {
           {
             options = <OptionsButton id = {id}/>
           }
-          return <div  key = {id}>
-                  <MessageItem content = {message.content} date = {message.date} showOptions={message.showOptions}/>
-                  {options}
-                 </div>           
+          if(message.author==="USER_CHAT")
+          {
+            direction = "align-self-end"
+          }
+          else if(message.author==="AUTO_CHAT")
+          {
+            direction = "align-self-start"
+          }
+          return <MessageItem  key = {id} id={id} direction = {direction} content = {message.content} date = {message.date} showOptions={message.showOptions} options={options}/>
+                         
         })}
       </MessageContainer>
       <MessageArea />
