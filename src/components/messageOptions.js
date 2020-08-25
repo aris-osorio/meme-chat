@@ -22,8 +22,6 @@ function useOutsideAlerter(ref, id) {
 
 
 export default function MessageOptions(props){
-    
-       // 
        const ref = useRef(null);
        useOutsideAlerter(ref, props.id);
 

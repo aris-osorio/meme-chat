@@ -1,11 +1,10 @@
-let moment = require('moment');
-let today = moment().format('MMMM Do YYYY, h:mm')
+let moment = require('moment'); 
 const INITIAL_STATE = {
     messages: [
         {
             author: "AUTO_CHAT",
             content: "Bienvenido a memechat inserta un mensaje",
-            date: today,
+            date: moment().format('MMMM Do YYYY, h:mm'),
             showOptions: false
         }
     ],
@@ -13,34 +12,19 @@ const INITIAL_STATE = {
 };
 const MEME_MESSAGE = [
         {
-            author: "AUTO_CHAT",
             content: "1",
-            date: today,
-            showOptions: false
         },
         {
-            author: "AUTO_CHAT",
             content: "2",
-            date: today,
-            showOptions: false
         },
         {
-            author: "AUTO_CHAT",
             content: "3",
-            date: today,
-            showOptions: false
         },
         {
-            author: "AUTO_CHAT",
             content: "4",
-            date: today,
-            showOptions: false
         },
         {
-            author: "AUTO_CHAT",
             content: "5",
-            date: today,
-            showOptions: false
         }];
 export const chatReducer =(previousState = INITIAL_STATE, action)=>{
     switch(action.type){
@@ -49,7 +33,7 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
             messages.push({
                     author: "USER_CHAT",
                     content: previousState.inputMessage,
-                    date: today,
+                    date: moment().format('MMMM Do YYYY, h:mm'),
                     showOptions: false
             });
             document.getElementById("input-txt").value = ""
@@ -57,8 +41,15 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
         }
         case "SEND_RANDOM":{
             let messages = [...previousState.messages]
+            let random = Math.floor(Math.random() * MEME_MESSAGE.length)
             if(messages[messages.length - 1].author === "USER_CHAT"){
-                messages.push(MEME_MESSAGE[Math.floor(Math.random() * MEME_MESSAGE.length)])
+                messages.push({
+                    author: "AUTO_CHAT",
+                    content: MEME_MESSAGE[random].content,
+                    date: moment().format('MMMM Do YYYY, h:mm'),
+                    showOptions: false
+                });
+                console.log(messages)
             }
             return { ...previousState, messages: messages };
         }
@@ -76,6 +67,8 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
         case "SHOW_OPTIONS":{
             let messages = [...previousState.messages];
             messages[action.payload].showOptions = action.show;
+            console.log("estoy cambiando item "+action.payload+" a "+action.show)
+            console.log(messages)
             return { ...previousState, messages: messages };
         }
         default:{

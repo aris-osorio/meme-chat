@@ -15,9 +15,9 @@ export default function MessageContainer(props){
             Store.dispatch(randomMessage())
           }, 1000);
           
-          return () => clearTimeout(timer);
+        return () => clearTimeout(timer);
        
-    }, [html.length])
+    }, [html.length, props.children.length])
 
     return(
             <div className="messages p-3">
