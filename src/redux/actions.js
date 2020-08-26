@@ -10,6 +10,13 @@ export const randomMessage =()=>
         type: "SEND_RANDOM"
     };
 };
+export const resendMessage =(id)=>
+{
+    return{
+        type: "RESEND",
+        payload: id
+    };
+};
 export const deleteMessage =(id)=>
 {
     return{

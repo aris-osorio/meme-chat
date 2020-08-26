@@ -54,6 +54,19 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
             }
             return { ...previousState, messages: messages };
         }
+        case "RESEND":{
+            let messages = [...previousState.messages];
+            messages.push({
+                author: "USER_CHAT",
+                content: messages[action.payload].content,
+                date:  moment().format('MMMM Do YYYY, h:mm'),
+                showOptions: false
+            });
+            messages[action.payload].showOptions = false;
+            console.log("ENVIANDO MENSAJE USUARIO")
+            document.getElementById("input-txt").value = ""
+            return { ...previousState, messages: messages };
+        }    
         case "DELETE":{
             let messages = [...previousState.messages];
             messages[action.payload] = {
