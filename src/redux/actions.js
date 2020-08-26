@@ -17,6 +17,14 @@ export const resendMessage =(id)=>
         payload: id
     };
 };
+export const highlightMessage =(id, options)=>
+{
+    return{
+        type: "HIGHLIGHT",
+        show: options,
+        payload: id
+    };
+};
 export const deleteMessage =(id)=>
 {
     return{

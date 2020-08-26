@@ -1,13 +1,13 @@
 import React,{ useRef, useEffect } from 'react'
 import Store from'../redux/store'
-import {optionsMessage, deleteMessage, resendMessage} from '../redux/actions'
+import {optionsMessage, deleteMessage, resendMessage, highlightMessage} from '../redux/actions'
 
 function useOutsideAlerter(ref, id) {
     useEffect(() => {
         
         function click(event) {
-            if (ref.current && !ref.current.contains(event.target)) {
-                Store.dispatch(optionsMessage(id, false)) 
+            if (!ref.current.contains(event.target)) {
+                Store.dispatch(optionsMessage(id, false))
             }
         }
 
@@ -24,13 +24,20 @@ function useOutsideAlerter(ref, id) {
 export default function MessageOptions(props){
        const ref = useRef(null);
        useOutsideAlerter(ref, props.id);
+       
+       let highlight = (<p className="dropdown-item" onClick={()=>Store.dispatch(highlightMessage(props.id, true))}>Marcar</p>)
+
+       if(props.show === true)
+       {
+            highlight = (<p className="dropdown-item" onClick={()=>Store.dispatch(highlightMessage(props.id, false))}>Desmarcar</p>)
+       }
 
     return(
         <div ref={ref}>
-            <div class="dropdown-menu show position-absolute" aria-labelledby="dropdownMenuButton">
-                <p class="dropdown-item" onClick={()=>Store.dispatch(resendMessage(props.id))}>Reenviar</p>
-                <p class="dropdown-item">Destacar</p>
-                <p class="dropdown-item" onClick={()=>Store.dispatch(deleteMessage(props.id))}>Eliminar</p>
+            <div className="dropdown-menu show position-absolute" aria-labelledby="dropdownMenuButton">
+                <p className="dropdown-item" onClick={()=>Store.dispatch(resendMessage(props.id))}>Reenviar</p>
+                {highlight}
+                <p className="dropdown-item" onClick={()=>Store.dispatch(deleteMessage(props.id))}>Eliminar</p>
             </div>
         </div>
     );

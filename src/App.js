@@ -20,16 +20,14 @@ export default function App() {
       <MessageContainer>
         {chatReducer.messages.map((message) => {
           id++
-          console.log(message.showOptions+" "+id)
           if(message.showOptions !=="DELETE")
           {
             if(message.showOptions===true){
-              console.log(message.showOptions+" entro a true "+id)
-              options = <MessageOptions  id = {id}/>
+
+              options = <MessageOptions  id = {id} show = {message.highlight}/>
             }
             else 
             {
-              console.log(message.showOptions+" entro a false "+id)
               options = <OptionsButton id = {id}/>
             }
           }

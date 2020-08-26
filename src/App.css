@@ -3,10 +3,85 @@
   text-align: center;
 
 }
+.fill
+{
+  fill: #967DFA /*background: linear-gradient(to right, blue, white);*/
+}
+.title-container
+{
+  box-shadow: 0 10px 10px #E0E1E4;
+}
+.top-title
+{
+  margin-top: 11px
+}
+.image-container
+{
+  background-image: url("./media/photo.jpg"); 
+  background-size: 50px 50px;
+  height: 50px;
+  width: 50px;
+}
+.white-container
+{
+  background-color: white;
+  height: 17px;
+  width: 17px; 
+  top: 42px;
+  left: 42px;
+}
+.chat-container
+{
+  background-color: #42B72A;
+  height: 10px;
+  width: 10px; 
+}
 .messages
 {
-  height: 537px!important;
+  height: 515px!important;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
+}
+.size-space
+{
+  height: 20px;
+  width: 20px; 
+}
+#input-txt
+{
+  border: 0px;
+}
+#input-txt::placeholder
+{
+  color : lightgray;
+}
+.color-1
+{
+  background-color: #F5F6F8;
+}
+.color-2
+{
+  background-color: #E0E1E4;
+}
+.color-2-txt
+{
+  color: #E0E1E4;
+  font-size: 12px;
+}
+.color-3
+{
+  background-color: #967DFA;
+}
+.color-4-txt
+{
+  color: #858280;
+}
+.color-5-txt
+{
+  color: #C6B6C9
+}
+.color-6
+{
+  background-color: #9088F8;
 }

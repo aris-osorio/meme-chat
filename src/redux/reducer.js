@@ -4,8 +4,9 @@ const INITIAL_STATE = {
         {
             author: "AUTO_CHAT",
             content: "Bienvenido a memechat inserta un mensaje",
-            date: moment().format('MMMM Do YYYY, h:mm'),
-            showOptions: false
+            date: moment(),
+            showOptions: false,
+            highlight: false
         }
     ],
     inputMessage : ""
@@ -33,7 +34,7 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
             messages.push({
                     author: "USER_CHAT",
                     content: previousState.inputMessage,
-                    date: moment().format('MMMM Do YYYY, h:mm'),
+                    date: moment(),
                     showOptions: false
             });
             console.log("ENVIANDO MENSAJE USUARIO")
@@ -47,7 +48,7 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
                 messages.push({
                     author: "AUTO_CHAT",
                     content: MEME_MESSAGE[random].content,
-                    date: moment().format('MMMM Do YYYY, h:mm'),
+                    date: moment(),
                     showOptions: false
                 });
                 console.log("ENVIANDO MENSAJE RANDOM")
@@ -56,15 +57,27 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
         }
         case "RESEND":{
             let messages = [...previousState.messages];
+            let label ="(Reenviado) "
+            if (messages[action.payload].content.includes(label))
+            {
+                label =""
+            }
             messages.push({
                 author: "USER_CHAT",
-                content: messages[action.payload].content,
-                date:  moment().format('MMMM Do YYYY, h:mm'),
+                content: label+messages[action.payload].content,
+                date:  moment(),
                 showOptions: false
             });
             messages[action.payload].showOptions = false;
-            console.log("ENVIANDO MENSAJE USUARIO")
+            console.log("REENVIANDO MENSAJE USUARIO")
             document.getElementById("input-txt").value = ""
+            return { ...previousState, messages: messages };
+        }
+        case "HIGHLIGHT":{
+            let messages = [...previousState.messages];
+            messages[action.payload].highlight = action.show;
+            messages[action.payload].showOptions = false;
+            console.log("DESTACAR MENSAJE "+action.payload+" = "+action.show)
             return { ...previousState, messages: messages };
         }    
         case "DELETE":{
