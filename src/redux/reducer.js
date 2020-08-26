@@ -56,8 +56,13 @@ export const chatReducer =(previousState = INITIAL_STATE, action)=>{
         }
         case "DELETE":{
             let messages = [...previousState.messages];
-            messages.splice(action.payload, 1);
-            console.log("ELIMINANDO MENSAJE")
+            messages[action.payload] = {
+                author: messages[action.payload].author,
+                content: "Este mensaje ha sido eliminado",
+                date: "",
+                showOptions: "DELETE"
+            }
+            console.log("ELIMINANDO MENSAJE "+action.payload)
             return { ...previousState, messages: messages };
         }
         case "SET_INPUT_VALUE":{

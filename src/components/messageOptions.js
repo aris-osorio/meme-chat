@@ -1,6 +1,7 @@
 import React,{ useRef, useEffect } from 'react'
 import Store from'../redux/store'
 import {optionsMessage} from '../redux/actions'
+import {deleteMessage} from '../redux/actions'
 
 function useOutsideAlerter(ref, id) {
     useEffect(() => {
@@ -27,7 +28,11 @@ export default function MessageOptions(props){
 
     return(
         <div ref={ref}>
-            <p className="mb-0">opciones</p>
+            <div class="dropdown-menu show position-absolute" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-item">Reenviar</p>
+                <p class="dropdown-item">Destacar</p>
+                <p class="dropdown-item" onClick={()=>Store.dispatch(deleteMessage(props.id))}>Eliminar</p>
+            </div>
         </div>
     );
 }

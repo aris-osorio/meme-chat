@@ -22,7 +22,7 @@ export default function MessageContainer(props){
     return(
             <div className="messages p-3">
                 <div className="overflow-auto" id="messages-cont">
-                    <div className="d-flex flex-column">{html}</div>
+                    <div className="d-flex flex-column position-relative">{html}</div>
                 </div>
             </div>  
     );

@@ -4,7 +4,7 @@ export default function MessageItem(props)
 {    
     return(
         <div className = {props.direction} id={props.id.toString()}>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center position-relative">
                 <label>{props.date}</label>
                 {props.options}
             </div>
