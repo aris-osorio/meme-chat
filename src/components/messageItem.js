@@ -37,8 +37,8 @@ export default function MessageItem(props)
     }
 
     return(
-        <div className={props.direction+" pb-5"} id={props.id.toString()}>
-            <div className = {bg+" shadow rounded mw-100"} >
+        <div className={props.direction+" pb-5 "} id={props.id.toString()}>
+            <div className = {bg+" shadow rounded mw-100 pointer"} >
                <div className="d-flex justify-content-end">
                    {props.options}
                 </div>

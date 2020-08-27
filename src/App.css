@@ -38,7 +38,7 @@
 }
 .messages
 {
-  height: 520px!important;
+  height: 515px!important;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
@@ -54,7 +54,7 @@
 }
 .options-button:active
 {
-  background-color: #E0E1E4;
+  background: #E0E1E4;
 }
 .options-button2:hover
 {
@@ -76,6 +76,22 @@
   background: linear-gradient(to right, #967DFA, #9088F8);
   color: white;
   fill: white;
+}
+.item
+{
+  color: black;
+}
+.item:hover
+{
+ color: #9088F8;
+}
+.item:active
+{
+  background-color: #F5F6F8;
+}
+.pointer
+{
+  cursor: pointer;
 }
 #input-txt
 {

@@ -14,6 +14,8 @@ export default function App() {
   let options
   let direction
 
+  document.title = "Meme chat"
+  
   return (
     <div className="App vh-100">
       <TitleChat />
