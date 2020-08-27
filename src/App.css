@@ -5,7 +5,7 @@
 }
 .fill
 {
-  fill: #967DFA /*background: linear-gradient(to right, blue, white);*/
+  fill: #967DFA 
 }
 .title-container
 {
@@ -38,23 +38,39 @@
 }
 .messages
 {
-  height: 515px!important;
+  height: 520px!important;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
 }
-.size-space
+#messages-cont
 {
-  height: 20px;
-  width: 20px; 
+  overflow-y: auto;
+}
+.txt-message
+{
+  max-width: 400px;
+  height: auto;
+  word-wrap: break-word;
+}
+.bg-user
+{
+  background: linear-gradient(to right, #967DFA, #9088F8);
+  color: white;
+  fill: white;
 }
 #input-txt
 {
+  outline: none!important;
   border: 0px;
 }
 #input-txt::placeholder
 {
-  color : lightgray;
+  color : grey;
+}
+#input-txt:focus
+{
+  box-shadow: 0 0 0 0.2rem transparent;
 }
 .color-1
 {
@@ -66,7 +82,7 @@
 }
 .color-2-txt
 {
-  color: #E0E1E4;
+  color: lightgrey;
   font-size: 12px;
 }
 .color-3
@@ -76,6 +92,8 @@
 .color-4-txt
 {
   color: #858280;
+  font-size: 12px;
+
 }
 .color-5-txt
 {
@@ -84,4 +102,8 @@
 .color-6
 {
   background-color: #9088F8;
+}
+.color-6-txt
+{
+  color: #9088F8;
 }

@@ -13,19 +13,28 @@ const INITIAL_STATE = {
 };
 const MEME_MESSAGE = [
         {
-            content: "1",
+            content: "Yo nesesito amor, comprencion y ternura!",
         },
         {
-            content: "2",
+            content: "Y mis 50 mil pesos que?",
         },
         {
-            content: "3",
+            content: "Ola k ase",
         },
         {
-            content: "4",
+            content: "Omae wa mou shindeiru",
         },
         {
-            content: "5",
+            content: "Comete un pan",
+        },
+        {
+            content: "Ya no puedo, pero voy a sacar el FUAAA!",
+        },
+        {
+            content: "Tengo miedo!",
+        },
+        {
+            content: "Que esta pasando Doctor!?",
         }];
 export const chatReducer =(previousState = INITIAL_STATE, action)=>{
     switch(action.type){

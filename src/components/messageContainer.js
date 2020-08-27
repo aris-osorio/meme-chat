@@ -20,9 +20,9 @@ export default function MessageContainer(props){
     }, [html.length, props.children.length])
 
     return(
-            <div className="messages p-3 color-1">
-                <div className="overflow-auto" id="messages-cont">
-                    <div className="d-flex flex-column position-relative">{html}</div>
+            <div className="messages color-1">
+                <div id="messages-cont">
+                    <div className="d-flex flex-column position-relative p-4">{html}</div>
                 </div>
             </div>  
     );

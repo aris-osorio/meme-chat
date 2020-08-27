@@ -43,7 +43,7 @@ export default function App() {
           {
             direction = "align-self-start"
           }
-          return <MessageItem key={id} id={id} direction = {direction} content = {message.content} date = {message.date} showOptions={message.showOptions} options={options}/>
+          return <MessageItem key={id} id={id} direction = {direction} content = {message.content} date = {message.date} showOptions={message.showOptions} options={options} highlight={message.highlight}/>
                          
         })}
       </MessageContainer>
