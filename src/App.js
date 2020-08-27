@@ -17,7 +17,7 @@ export default function App() {
   document.title = "Meme chat"
   
   return (
-    <div className="App vh-100">
+    <div className="App ">
       <TitleChat />
       <MessageContainer>
         {chatReducer.messages.map((message) => {
