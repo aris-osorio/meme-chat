@@ -38,7 +38,7 @@
 }
 .messages
 {
-  min-height: 515px!important;
+  height: 515px!important;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
