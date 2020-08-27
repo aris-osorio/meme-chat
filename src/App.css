@@ -47,6 +47,24 @@
 {
   overflow-y: auto;
 }
+.options-button:hover
+{
+  cursor: pointer;
+  fill: #9088F8;
+}
+.options-button:active
+{
+  background-color: #E0E1E4;
+}
+.options-button2:hover
+{
+  cursor: pointer;
+  fill: lightgray;
+}
+.options-button2:active
+{
+  background-color: #E0E1E4;
+}
 .txt-message
 {
   max-width: 400px;

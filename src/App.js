@@ -28,7 +28,7 @@ export default function App() {
             }
             else 
             {
-              options = <OptionsButton id = {id}/>
+              options = <OptionsButton id = {id} author={message.author}/>
             }
           }
           else
